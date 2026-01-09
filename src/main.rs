@@ -16,7 +16,7 @@ fn main() {
         // 1. Initialize Layer Shell
         window.init_layer_shell();
         window.set_layer(Layer::Overlay);
-        
+        window.set_namespace(Some("status-layer"));
         // 2. Center the window (Edge replaces Anchor in new API)
         window.set_anchor(Edge::Top, true);
         window.set_anchor(Edge::Bottom, false);
@@ -28,8 +28,7 @@ fn main() {
         let provider = CssProvider::new();
         provider.load_from_data("
             window {
-                background-color: rgba(30, 30, 46, 0.8);
-                border-radius: 12px;
+                background-color: rgba(30, 30, 46, 1.0);
                 border: 2px solid #585b70;
             }
             label {
