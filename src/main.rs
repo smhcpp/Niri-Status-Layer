@@ -18,10 +18,11 @@ fn main() {
         window.set_layer(Layer::Overlay);
         
         // 2. Center the window (Edge replaces Anchor in new API)
-        window.set_anchor(Edge::Top, false);
+        window.set_anchor(Edge::Top, true);
         window.set_anchor(Edge::Bottom, false);
         window.set_anchor(Edge::Left, false);
         window.set_anchor(Edge::Right, false);
+        window.set_default_size(300, 100);
 
         // 3. Apply Styling
         let provider = CssProvider::new();
@@ -49,6 +50,8 @@ fn main() {
         }
 
         let label = Label::new(Some("System Ready"));
+        label.set_margin_start(20);
+        label.set_margin_end(20);
         window.set_child(Some(&label));
         
         window.present();
